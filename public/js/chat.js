@@ -23,14 +23,15 @@ document.querySelector('#userForm').addEventListener('submit',(e) => {
     socket.emit('join' , { username:$userNameForm1Input.value , room:$roomNameForm1Input.value } , (error) => {
         if (error) {
             $('#nickError').html(error)
-                $userNameForm1Input.focus();
-                coin.play();
+            $userNameForm1Input.focus();
+            coin.play();
+            $userNameForm1Input.value = ''
         } else {
             $('#userNameContainer').hide(1000);
             $('#chatContainer').show(2000);
             $messageFormInput.focus()    
         }
-        $userNameForm1Input.val('');
+        $userNameForm1Input.value = ''
     })
 
     var userName = document.getElementById('userNameForm1').value
@@ -97,7 +98,6 @@ socket.on('whisper' , (message) => {
                                 <p class="small text-muted float-right my-0 font-italic">${moment(message.createdAt).format('h:mm A')}</p>
                             </div>
                         </div>`)
-                        audio.play();
     } else {
         $('#messages').append(`<div class="media w-50 mb-3">
                             <div class="media-body ml-3 font-italic">
