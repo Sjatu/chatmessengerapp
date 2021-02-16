@@ -54,20 +54,17 @@ io.on('connection' , (socket) => {
                     io.to(userTo.id).emit('whisper', generateMessage(`[${user.username}] `,msg))
                     socket.emit( 'whisper' , generateMessage('You',`[${userTo.username}] : ${msg}`) )
                 } else {
-                    callback({username:'Admin', message: 'Error => Enter a valid user!'})
+                    callback({username:'Admin', message: 'Enter a valid user!'})
                 }
 
             }else {
-                callback({username:'Admin', message: 'Error => Please enter a message for your whisper!'})
+                callback({username:'Admin', message: 'Enter a message for your whisper!'})
             }
         }
         else {
             if(user) {
                 socket.broadcast.to( user.room ).emit('receive' , generateMessage(user.username,message))
                 callback({username:'You', message})    
-            }
-            else {
-                location.href = '/'
             }
         }
     })
