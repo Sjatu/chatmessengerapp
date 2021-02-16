@@ -30,6 +30,7 @@ document.querySelector('#userForm').addEventListener('submit',(e) => {
             $('#chatContainer').show(2000);
             $messageFormInput.focus()    
         }
+        $userNameForm1Input.val('');
     })
 
     var userName = document.getElementById('userNameForm1').value
