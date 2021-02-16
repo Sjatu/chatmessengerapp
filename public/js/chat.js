@@ -43,7 +43,7 @@ document.querySelector('#userForm').addEventListener('submit',(e) => {
 
 var feedback = document.getElementById('feedback');
     
-   $messageFormInput.addEventListener("keypress", () => {
+   $messageFormInput.addEventListener("keyup", () => {
         var userName = document.getElementById('handleName').innerHTML
         socket.emit('typing', userName)
     })
