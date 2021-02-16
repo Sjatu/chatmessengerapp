@@ -11,8 +11,10 @@ const $messages = document.querySelector('#messages')
 const $userNameForm1Input = document.querySelector('#userNameForm1')
 const $roomNameForm1Input = document.querySelector('#roomNameForm1')
 
+jQuery(function ($) {
 $('#chatContainer').hide();
 $userNameForm1Input.focus();
+})
 var audio = new Audio('ting.mp3');
 var coin = new Audio('coin.mp3');
 
